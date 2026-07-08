@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Geist_Mono } from 'next/font/google';
+import { IBM_Plex_Mono } from 'next/font/google';
 import '../styles/globals.css';
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin']
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: '--font-mono-ibm',
+  subsets: ['latin'],
+  weight: ['400']
 });
 
 export const metadata: Metadata = {
@@ -18,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-mono">{children}</body>
+    <html lang="en" className={`${ibmPlexMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-mono-ibm">{children}</body>
     </html>
   );
 }
