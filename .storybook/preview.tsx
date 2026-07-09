@@ -2,6 +2,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview, ReactRenderer } from '@storybook/nextjs-vite';
 import { IBM_Plex_Mono } from 'next/font/google';
 import '../src/styles/globals.css';
+import { themes } from 'storybook/theming';
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: '--font-mono-ibm',
@@ -17,6 +18,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: {
+      theme: themes.dark
     },
     a11y: {
       test: 'error'
