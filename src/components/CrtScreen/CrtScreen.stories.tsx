@@ -16,7 +16,7 @@ const meta = {
     hasHumBar: true,
     hasPhosphorMask: true,
     scanlineCount: 240,
-    children: <p>{faker.lorem.paragraphs(30)}</p>,
+    children: <>{faker.lorem.paragraphs(30)}</>,
     className: 'p-4'
   },
   argTypes: {
