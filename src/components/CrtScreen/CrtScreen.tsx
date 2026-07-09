@@ -5,30 +5,37 @@ import styles from './CrtScreen.module.css';
 export type CrtScreenProps = {
   backgroundColor?: string;
   foregroundColor?: string;
-  hasAperture?: boolean;
   hasBloom?: boolean;
   hasCornerReflection?: boolean;
+  hasEdgeShadow?: boolean;
   hasFlicker?: boolean;
-  hasGlassCurvature?: boolean;
+  hasGrain?: boolean;
+  hasHumBar?: boolean;
+  hasPhosphorMask?: boolean;
   hasScanlines?: boolean;
+  scanlineCount?: number;
 } & ComponentProps<'div'>;
 
 export default function CrtScreen({
   backgroundColor,
   foregroundColor,
-  hasAperture = true,
   hasBloom = true,
   hasCornerReflection = true,
+  hasEdgeShadow = true,
   hasFlicker = true,
-  hasGlassCurvature = true,
+  hasGrain = true,
+  hasHumBar = true,
+  hasPhosphorMask = true,
   hasScanlines = true,
+  scanlineCount = 240,
   className,
   style,
   children
 }: CrtScreenProps) {
   const cssVars = {
     ...(backgroundColor !== undefined && { '--background': backgroundColor }),
-    ...(foregroundColor !== undefined && { '--foreground': foregroundColor })
+    ...(foregroundColor !== undefined && { '--foreground': foregroundColor }),
+    '--scanline-count': scanlineCount
   } as CSSProperties;
 
   return (
@@ -40,11 +47,15 @@ export default function CrtScreen({
       )}
       style={{ ...style, ...cssVars }}
     >
-      <div className={twMerge(hasFlicker && styles.flicker)}>{children}</div>
-      <div className={twMerge(styles.effect, hasCornerReflection && styles.cornerReflection)} />
-      <div className={twMerge(styles.effect, hasGlassCurvature && styles.glassCurvature)} />
-      <div className={twMerge(styles.effect, hasScanlines && styles.scanlines)} />
-      <div className={twMerge(styles.effect, hasAperture && styles.aperture)} />
+      <div>{children}</div>
+      {hasBloom && <div className={twMerge(styles.effect, styles.screenGlow)} />}
+      {hasPhosphorMask && <div className={twMerge(styles.effect, styles.phosphorMask)} />}
+      {hasScanlines && <div className={twMerge(styles.effect, styles.scanlines)} />}
+      {hasHumBar && <div className={twMerge(styles.effect, styles.humBar)} />}
+      {hasGrain && <div className={twMerge(styles.effect, styles.grain)} />}
+      {hasFlicker && <div className={twMerge(styles.effect, styles.flicker)} />}
+      {hasEdgeShadow && <div className={twMerge(styles.effect, styles.edgeShadow)} />}
+      {hasCornerReflection && <div className={twMerge(styles.effect, styles.cornerReflection)} />}
     </div>
   );
 }

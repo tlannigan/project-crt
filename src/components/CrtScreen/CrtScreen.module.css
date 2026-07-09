@@ -9,82 +9,171 @@
   opacity: 0.25;
 }
 
-.glassCurvature {
+.edgeShadow {
   background: radial-gradient(ellipse at center, transparent 72%, rgba(0, 0, 0, 0.12) 100%);
 }
 
+.screenGlow {
+  background: radial-gradient(
+    ellipse at center,
+    oklch(from var(--foreground) l c h / 0.08) 0%,
+    oklch(from var(--foreground) l c h / 0.03) 45%,
+    transparent 75%
+  );
+  mix-blend-mode: screen;
+}
+
 .scanlines {
+  container-type: size;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  --sl-pitch: calc(100cqh / var(--scanline-count, 240));
   background: repeating-linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0px,
-    rgba(0, 0, 0, 0.14) 1.5px,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.16) calc(var(--sl-pitch) / 2),
+    rgba(0, 0, 0, 0) var(--sl-pitch)
+  );
+  mix-blend-mode: multiply;
+}
+
+.phosphorMask {
+  background: repeating-linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    rgba(0, 0, 0, 0) 1px,
     rgba(0, 0, 0, 0) 3px
   );
   mix-blend-mode: multiply;
 }
 
-.aperture {
-  background: repeating-linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.05) 0px,
-    rgba(255, 0, 0, 0.05) 1px,
-    rgba(0, 255, 0, 0.05) 1px,
-    rgba(0, 255, 0, 0.05) 2px,
-    rgba(0, 0, 255, 0.05) 2px,
-    rgba(0, 0, 255, 0.05) 3px
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.05;
+  mix-blend-mode: screen;
+  animation: grain 0.5s steps(5) infinite;
+}
+
+@keyframes grain {
+  0% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: -15px 8px;
+  }
+  40% {
+    background-position: 12px -18px;
+  }
+  60% {
+    background-position: -8px 14px;
+  }
+  80% {
+    background-position: 16px 6px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.humBar::before,
+.humBar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 160%;
+  animation: hum 12s linear infinite;
+}
+
+/* Light hum bar */
+.humBar::before {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 42%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0) 58%
   );
-  mix-blend-mode: overlay;
+  mix-blend-mode: screen;
+}
+
+/* Dark hum bar */
+.humBar::after {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(0, 0, 0, 0.12) 50%,
+    rgba(0, 0, 0, 0) 58%
+  );
+  mix-blend-mode: multiply;
+  animation-delay: -6s;
+}
+
+@keyframes hum {
+  0% {
+    background-position: 0 -160%;
+  }
+  100% {
+    background-position: 0 160%;
+  }
 }
 
 .flicker {
-  animation: flicker 0.15s infinite;
-}
-
-.flicker ::selection,
-.flicker::selection {
-  color: var(--background);
-  background-color: var(--foreground);
+  background: #000;
+  mix-blend-mode: multiply;
+  opacity: 0.02;
+  animation: flicker 6s ease-in-out infinite;
 }
 
 @keyframes flicker {
   0% {
-    opacity: 1;
+    opacity: 0.02;
   }
-  10% {
-    opacity: 0.96;
+  12% {
+    opacity: 0.03;
   }
   20% {
-    opacity: 1;
+    opacity: 0.015;
   }
-  30% {
-    opacity: 0.92;
+  28% {
+    opacity: 0.05;
   }
-  40% {
-    opacity: 0.99;
+  35% {
+    opacity: 0.02;
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.025;
   }
-  60% {
-    opacity: 1;
+  58% {
+    opacity: 0.045;
   }
-  70% {
-    opacity: 0.9;
+  65% {
+    opacity: 0.02;
   }
-  80% {
-    opacity: 0.98;
+  78% {
+    opacity: 0.03;
   }
-  90% {
-    opacity: 0.94;
+  85% {
+    opacity: 0.018;
+  }
+  92% {
+    opacity: 0.055;
   }
   100% {
-    opacity: 1;
+    opacity: 0.02;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flicker {
+  .flicker,
+  .grain,
+  .humBar::before,
+  .humBar::after {
     animation: none;
-    opacity: 1;
   }
 }

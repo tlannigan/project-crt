@@ -9,12 +9,25 @@ const meta = {
   args: {
     hasBloom: true,
     hasCornerReflection: true,
-    hasGlassCurvature: true,
+    hasEdgeShadow: true,
     hasScanlines: true,
     hasFlicker: true,
-    hasAperture: true,
+    hasGrain: true,
+    hasHumBar: true,
+    hasPhosphorMask: true,
+    scanlineCount: 240,
     children: <p>{faker.lorem.paragraphs(30)}</p>,
     className: 'p-4'
+  },
+  argTypes: {
+    scanlineCount: {
+      control: {
+        type: 'range',
+        min: 16,
+        max: 1000,
+        step: 1
+      }
+    }
   },
   parameters: {
     layout: 'fullscreen'
