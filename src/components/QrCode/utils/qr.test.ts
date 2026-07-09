@@ -156,7 +156,8 @@ describe('determinism & regression', () => {
   });
 
   it('matches the known-good snapshot', () => {
-    // Regenerates intentionally if the encoder changes.
+    // Fails if the encoder changes. Update the committed snapshot with `vitest -u`
+    // only after verifying the new matrix is correct.
     expect(render(encodeQrMatrix('https://example.com', 'M'))).toMatchSnapshot();
   });
 });
