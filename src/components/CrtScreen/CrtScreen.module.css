@@ -1,0 +1,90 @@
+.effect {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cornerReflection {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 20%);
+  opacity: 0.25;
+}
+
+.glassCurvature {
+  background: radial-gradient(ellipse at center, transparent 72%, rgba(0, 0, 0, 0.12) 100%);
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0.14) 1.5px,
+    rgba(0, 0, 0, 0) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.aperture {
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.05) 0px,
+    rgba(255, 0, 0, 0.05) 1px,
+    rgba(0, 255, 0, 0.05) 1px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 0, 255, 0.05) 2px,
+    rgba(0, 0, 255, 0.05) 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.flicker {
+  animation: flicker 0.15s infinite;
+}
+
+.flicker ::selection,
+.flicker::selection {
+  color: var(--background);
+  background-color: var(--foreground);
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.96;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.92;
+  }
+  40% {
+    opacity: 0.99;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.98;
+  }
+  90% {
+    opacity: 0.94;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flicker {
+    animation: none;
+    opacity: 1;
+  }
+}
