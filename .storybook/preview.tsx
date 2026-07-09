@@ -11,6 +11,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 const preview: Preview = {
   parameters: {
+    layout: 'fullscreen',
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -33,10 +34,10 @@ const preview: Preview = {
     ),
     withThemeByClassName<ReactRenderer>({
       themes: {
-        Light: '',
-        Dark: 'dark'
+        Green: 'green',
+        Orange: 'orange'
       },
-      defaultTheme: 'Dark'
+      defaultTheme: 'Green'
     })
   ],
   tags: ['autodocs']

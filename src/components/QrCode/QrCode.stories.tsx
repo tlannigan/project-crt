@@ -20,14 +20,11 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <CrtScreen className="grid place-content-center">
+      <CrtScreen className="grid place-content-center h-dvh">
         <Story />
       </CrtScreen>
     )
-  ],
-  parameters: {
-    layout: 'fullscreen'
-  }
+  ]
 } satisfies Meta<typeof QrCode>;
 
 export default meta;
