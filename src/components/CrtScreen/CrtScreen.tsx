@@ -5,14 +5,23 @@ import styles from './CrtScreen.module.css';
 export type CrtScreenProps = {
   backgroundColor?: string;
   foregroundColor?: string;
+  /** Enables glowing text-shadow */
   hasBloom?: boolean;
+  /** Enables rounded glass reflection in top left corner */
   hasCornerReflection?: boolean;
+  /** Enables vignette */
   hasEdgeShadow?: boolean;
+  /** Enables light opacity flicker animation */
   hasFlicker?: boolean;
+  /** Enables film grain noise animation */
   hasGrain?: boolean;
+  /** Enables dark and light oscillating hum bar that moves from bottom to top  */
   hasHumBar?: boolean;
+  /** Enables a vertical phosphor stripe mask  */
   hasPhosphorMask?: boolean;
+  /** Enables static alternating horizontal dark bars */
   hasScanlines?: boolean;
+  /** The number of vertical scanlines */
   scanlineCount?: number;
 } & ComponentProps<'div'>;
 
