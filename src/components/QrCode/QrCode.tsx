@@ -32,7 +32,7 @@ export default function QrCode({
     <div
       role="img"
       aria-label={`QR code linking to ${url}`}
-      className={twMerge('inline-grid', className)}
+      className={twMerge(className, 'inline-grid')}
       style={gridStyle}
       {...rest}
     >

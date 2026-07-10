@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import CrtScreen from '@/components/CrtScreen/CrtScreen';
 import QrCode from '@/components/QrCode/QrCode';
 
 const meta = {
@@ -17,14 +16,7 @@ const meta = {
     quietZone: {
       control: { type: 'range', min: 0, max: 8, step: 1 }
     }
-  },
-  decorators: [
-    (Story) => (
-      <CrtScreen className="grid place-content-center h-dvh">
-        <Story />
-      </CrtScreen>
-    )
-  ]
+  }
 } satisfies Meta<typeof QrCode>;
 
 export default meta;

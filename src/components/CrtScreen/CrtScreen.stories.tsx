@@ -6,6 +6,10 @@ faker.seed(1337);
 
 const meta = {
   component: CrtScreen,
+  parameters: {
+    // This story IS the CrtScreen, prevent double CrtScreen wrappers
+    crtScreen: false
+  },
   args: {
     hasBloom: true,
     hasCornerReflection: true,
@@ -16,8 +20,8 @@ const meta = {
     hasHumBar: true,
     hasPhosphorMask: true,
     scanlineCount: 240,
-    children: <>{faker.lorem.paragraphs(30)}</>,
-    className: 'p-4'
+    children: <>{faker.lorem.paragraphs(10)}</>,
+    className: 'grid place-content-center h-full px-6 py-4'
   },
   argTypes: {
     scanlineCount: {
@@ -28,9 +32,6 @@ const meta = {
         step: 1
       }
     }
-  },
-  parameters: {
-    layout: 'fullscreen'
   }
 } satisfies Meta<typeof CrtScreen>;
 
