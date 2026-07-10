@@ -6,6 +6,7 @@ faker.seed(1337);
 
 const meta = {
   component: Box,
+  title: 'Box',
   args: {
     title: 'Transmission Control',
     children: <p>{faker.lorem.paragraphs(2)}</p>,

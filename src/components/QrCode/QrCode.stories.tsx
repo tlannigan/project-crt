@@ -3,6 +3,7 @@ import QrCode from '@/components/QrCode/QrCode';
 
 const meta = {
   component: QrCode,
+  title: 'QR Code',
   args: {
     url: 'https://tlannigan.com',
     errorCorrection: 'M',

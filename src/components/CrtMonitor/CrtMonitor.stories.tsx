@@ -1,14 +1,15 @@
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import CrtScreen from '@/components/CrtScreen/CrtScreen';
+import CrtMonitor from '@/components/CrtMonitor/CrtMonitor';
 
 faker.seed(1337);
 
 const meta = {
-  component: CrtScreen,
+  component: CrtMonitor,
+  title: 'CRT Monitor',
   parameters: {
-    // This story IS the CrtScreen, prevent double CrtScreen wrappers
-    crtScreen: false
+    // This story IS the CrtMonitor, prevent double CrtMonitor wrappers
+    crtMonitor: false
   },
   args: {
     hasBloom: true,
@@ -33,9 +34,9 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof CrtScreen>;
+} satisfies Meta<typeof CrtMonitor>;
 
 export default meta;
-type Story = StoryObj<typeof CrtScreen>;
+type Story = StoryObj<typeof CrtMonitor>;
 
 export const Default: Story = {};

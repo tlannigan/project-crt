@@ -1,8 +1,8 @@
 import type { ComponentProps, CSSProperties } from 'react';
 import { twMerge } from 'tailwind-merge';
-import styles from './CrtScreen.module.css';
+import styles from './CrtMonitor.module.css';
 
-export type CrtScreenProps = {
+export type CrtMonitorProps = {
   backgroundColor?: string;
   foregroundColor?: string;
   /** Enables glowing text-shadow */
@@ -25,7 +25,7 @@ export type CrtScreenProps = {
   scanlineCount?: number;
 } & ComponentProps<'div'>;
 
-export default function CrtScreen({
+export default function CrtMonitor({
   backgroundColor,
   foregroundColor,
   hasBloom = true,
@@ -40,7 +40,7 @@ export default function CrtScreen({
   className,
   style,
   children
-}: CrtScreenProps) {
+}: CrtMonitorProps) {
   const cssVars = {
     ...(backgroundColor !== undefined && { '--background': backgroundColor }),
     ...(foregroundColor !== undefined && { '--foreground': foregroundColor }),
