@@ -1,12 +1,12 @@
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Box from '@/components/Box';
+import Box from '@/components/Box/Box';
 
 faker.seed(1337);
 
 const meta = {
   component: Box,
-  title: 'Box',
+  title: 'Everything Else/Box',
   args: {
     title: 'Transmission Control',
     children: <p>{faker.lorem.paragraphs(2)}</p>,
