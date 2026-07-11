@@ -1,0 +1,25 @@
+.shape {
+  position: absolute;
+  pointer-events: none;
+  will-change: left, top, opacity;
+  filter: var(--shape-glow);
+  animation: tunnel var(--duration) linear var(--delay, 0ms) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes tunnel {
+  from {
+    left: var(--from-x);
+    top: var(--from-y);
+    opacity: 1;
+  }
+  to {
+    left: var(--to-x);
+    top: var(--to-y);
+    opacity: 0;
+  }
+}
