@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono } from 'next/font/google';
+import { ibmVgaMono } from '@/styles/fonts/fonts';
 import '../styles/globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -19,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibmPlexMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-mono-ibm">{children}</body>
+    <html lang="en" className={`${ibmVgaMono.variable} ${ibmPlexMono.variable} h-full`}>
+      <body className="min-h-full flex flex-col font-vga">{children}</body>
     </html>
   );
 }

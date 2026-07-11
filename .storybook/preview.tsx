@@ -2,6 +2,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Decorator, Preview, ReactRenderer } from '@storybook/nextjs-vite';
 import { IBM_Plex_Mono } from 'next/font/google';
 import CrtMonitor from '@/components/CrtMonitor/CrtMonitor';
+import { ibmVgaMono } from '@/styles/fonts/fonts';
 import '../src/styles/globals.css';
 import { themes } from 'storybook/theming';
 
@@ -12,11 +13,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 // Conditionally render CrtMonitor wrapper around component stories
-const withCrtMonitor: Decorator = (Story, { viewMode, parameters }) => {
+const withCrtMonitor: Decorator = (Story, { viewMode, parameters, globals }) => {
   const height = viewMode === 'docs' ? '' : 'h-dvh';
+  const fontClass = globals.font === 'plex' ? 'font-plex' : 'font-vga';
 
   return (
-    <div className={`${ibmPlexMono.variable} ${height} font-mono-ibm`}>
+    <div className={`${ibmVgaMono.variable} ${ibmPlexMono.variable} ${height} ${fontClass}`}>
       {parameters.crtMonitor === false ? (
         <Story />
       ) : (
@@ -29,6 +31,23 @@ const withCrtMonitor: Decorator = (Story, { viewMode, parameters }) => {
 };
 
 const preview: Preview = {
+  initialGlobals: {
+    font: 'vga'
+  },
+  globalTypes: {
+    font: {
+      name: 'Font',
+      description: 'Component font family',
+      toolbar: {
+        icon: 'type',
+        items: [
+          { value: 'vga', title: 'IBM VGA 8x16' },
+          { value: 'plex', title: 'IBM Plex Mono' }
+        ],
+        dynamicTitle: true
+      }
+    }
+  },
   parameters: {
     layout: 'fullscreen',
     options: {

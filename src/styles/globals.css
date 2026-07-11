@@ -8,7 +8,8 @@
   --color-foreground: var(--foreground);
 
   --font-sans: var(--font-geist-sans);
-  --font-mono-ibm: var(--font-mono-ibm);
+  --font-vga: var(--font-ibm-vga-mono);
+  --font-plex: var(--font-mono-ibm);
 
   --text-shadow-glow: var(--text-glow);
   --shadow-glow: var(--box-glow);
