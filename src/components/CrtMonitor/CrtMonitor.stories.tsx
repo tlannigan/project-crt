@@ -6,7 +6,7 @@ faker.seed(1337);
 
 const meta = {
   component: CrtMonitor,
-  title: 'Effects/CRT Monitor',
+  title: 'CRT Monitor',
   parameters: {
     // This story IS the CrtMonitor, prevent double CrtMonitor wrappers
     crtMonitor: false

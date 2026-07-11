@@ -3,7 +3,7 @@ import QrCode from '@/components/QrCode/QrCode';
 
 const meta = {
   component: QrCode,
-  title: 'Everything Else/QR Code',
+  title: 'Atoms/QR Code',
   args: {
     url: 'https://tlannigan.com',
     errorCorrection: 'M',
