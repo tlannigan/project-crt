@@ -1,3 +1,5 @@
 # Instruments and Readouts never hold their own value
 
 Every Instrument and Readout in `@tlannigan/crt` is strictly controlled: it takes a typed `value` (e.g. `{ x, y }` for the joystick) and, for Instruments, an `onChange`, and never keeps that value in internal state. A knob that tracks its own position would be the obvious default, and would work fine in Storybook. We rejected it because Calibrate has to drive every Instrument to its designed value from outside, several Instruments can drive the same Setting and must stay in sync, and the library must know nothing about Settings. The mapping from an Instrument's value to Settings (a Binding) lives in the site.
+
+The rule covers the *value*, not motion. A Readout may run purely decorative animation on its own, such as a radar sweep line or a blinking cursor, as long as that animation never changes or stands in for the value it displays. It stops under `prefers-reduced-motion`.
