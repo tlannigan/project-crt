@@ -38,13 +38,14 @@ A session is one browser tab (sessionStorage).
 - **The chaos is only visual.** DOM order, semantics and keyboard operation are the same as in the Calibrated page. Automated accessibility checks may fail only on an explicit allow-list of visual rules the chaos breaks on purpose (e.g. colour contrast), never on structural ones (names, roles, landmarks, focus).
 - **Low readability comes from Settings like brightness, size and bloom, not colour**, because Themes are fixed presets (green, orange) rather than a colour range.
 - **Skip to calibrated** is the first stop in the tab order, hidden until focused, the way Google shows "Skip to main content". It Calibrates instantly.
-- **The arrangement is not a Setting.** Only Calibrate rearranges elements. An Instrument that moved other Instruments, or itself, would be disorienting and would break focus order. Landing Settings change how the page *feels* (spacing, alignment, sizing, skew), not where things sit.
+- **The arrangement is not a Setting.** Only Calibrate rearranges elements. An Instrument that moved other Instruments, or itself, would be disorienting and would break focus order. Landing Settings change how the page *feels* (spacing, alignment, sizing, skew), not where things sit. The one exception is the Calibrate Prompt's position (see below).
 
 ## Calibrate Prompt and Calibrate
 
 - The Calibrate Prompt is a **call to action in the bottom-right corner** (a bottom bar on mobile) with a witty line, not a plain "Calibrate" button. It is **always readable and never part of the chaos**, because if visitors can't find it, most of them never see the payoff.
 - **Not a dialog**: a labelled `<aside>` with a real button, and no focus trap. A dialog would take over the page. The library component is `Window`, not `Dialog`, because a `Dialog` that isn't one would mislead the package's consumers; a real modal would get that name later.
 - **Minimise, never close.** It never permanently covers Instruments on small screens, and it's always easy to bring back.
+- **The joystick moves it.** Its position is a Landing Setting, the only one that moves an element. This doesn't break the arrangement rule's reasoning, because the visitor is operating the joystick, not the thing that moves. The Prompt starts in its corner in both states, can't leave the viewport, and Calibrate or Recalibrate sends it home, so visitors can always find it. It may cover content if the visitor puts it there: they chose to, and can minimise it. On mobile, where the Prompt is a bottom bar, there is no joystick.
 - **The Calibrate animation runs in three stages over about 2–3s**:
   1. A sequence led by the Readouts: counters, warning lights clearing, a "CALIBRATING" line. It avoids a progress bar because the Boot Screen already uses one.
   2. Settings sweep to their designed values.
@@ -57,15 +58,16 @@ A session is one browser tab (sessionStorage).
 ## Instruments, Readouts and Bindings
 
 - **Instruments take input and Readouts display information.** Purely decorative pieces (the tunnel, spinning ASCII art, bitmaps) are neither, and are just library components.
-- **One Instrument can drive several Settings** (a joystick's two axes), and **several Instruments can drive the same Setting**. This works because Instruments are controlled (ADR-0002).
+- **One Instrument can drive several Settings** (the joystick's two axes), but **each Setting is driven by at most one Instrument**, so every change on the page traces back to a single control. Settings without an Instrument are set only by the Uncalibrated state and Calibrate.
 - **Readouts show one of three kinds of data**: a Setting's value (a tachometer showing scanline count), self-driven data (a clock), or visitor activity (an odometer counting cursor distance, a "CONTRAST LOW" light that clears on Calibrate, which makes the accessibility point without spelling it out). The page supplies the value; the Readout never fetches or calculates it.
 - **Bindings live in the site**, as small value ↔ Settings mappings per Instrument. Instruments take their own typed value (the joystick takes `{ x, y }`), which keeps the library free of Settings and gives package consumers a familiar controlled-component API.
 - **Components are added when a page needs them.** Each new Instrument or Readout gets an issue only once a page has a concrete job for it: value type, Binding, keyboard model. The rest of the inspiration list stays as ideas.
 
 ## Accessibility
 
-- **Reduced motion is honoured on every page**: flicker, grain and the hum bar are off, and transitions are instant. The chaos stays, just without the motion. We don't start these visitors Calibrated, because that removes the joke without any real accessibility gain.
+- **Reduced motion is honoured on every page**: flicker and the hum bar are off, grain freezes to a still frame (so the grain Instrument still visibly works), and transitions are instant. The chaos stays, just without the motion. We don't start these visitors Calibrated, because that removes the joke without any real accessibility gain.
 - Every Instrument can be operated by keyboard, with a standard ARIA pattern (e.g. a knob is a `role="slider"`).
+- **Flicker stays on/off, never a range.** A visitor-adjustable flicker could cross the three-flashes-per-second threshold (WCAG 2.3.1).
 
 ## Mobile
 
