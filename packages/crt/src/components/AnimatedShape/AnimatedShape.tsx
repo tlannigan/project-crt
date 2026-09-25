@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
-import ShapeOutline, { dimensions, type ShapeType } from '@/components/ShapeOutline/ShapeOutline';
-import styles from './AnimatedShape.module.css';
+import ShapeOutline, { dimensions, type ShapeType } from '../ShapeOutline/ShapeOutline';
+import '../../styles/base.css';
+import './AnimatedShape.css';
 
 /** The diagonal a shape travels along, as left/top CSS positions */
 export type Path = { from: { x: string; y: string }; to: { x: string; y: string } };
@@ -64,7 +65,7 @@ export default function AnimatedShape({
   } as CSSProperties;
 
   return (
-    <span className={styles.shape} style={style} aria-hidden="true">
+    <span className="crt-animated-shape" style={style} aria-hidden="true">
       <ShapeOutline
         type={shape}
         width={width}

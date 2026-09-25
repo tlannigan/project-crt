@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import ProgressBar from '@/components/ProgressBar/ProgressBar';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import ProgressBar from './ProgressBar';
 
 const meta = {
   component: ProgressBar,

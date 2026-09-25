@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
+import '../../styles/base.css';
 
 export default function Box({ title, className, children }: ComponentProps<'div'>) {
   return (

@@ -37,8 +37,5 @@ export default defineConfig({
         }
       }
     ]
-  },
-  resolve: {
-    alias: { '@': path.join(dirname, 'src') }
   }
 });

@@ -2,8 +2,9 @@
 
 import { type ComponentProps, useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import AnimatedShape, { type Path } from '@/components/AnimatedShape/AnimatedShape';
-import type { ShapeType } from '@/components/ShapeOutline/ShapeOutline';
+import AnimatedShape, { type Path } from '../AnimatedShape/AnimatedShape';
+import type { ShapeType } from '../ShapeOutline/ShapeOutline';
+import '../../styles/base.css';
 
 export type { ShapeType };
 

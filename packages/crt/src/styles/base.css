@@ -1,0 +1,14 @@
+/* The library's shared stylesheet: theme tokens plus every Tailwind utility the
+   components use, compiled at build time so consumers need no Tailwind setup.
+   No preflight, so the library never resets a consumer's page. */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "./theme.css";
+
+@layer utilities {
+  @tailwind utilities source(none);
+}
+
+@source "../components";
+@source not "../**/*.stories.tsx";

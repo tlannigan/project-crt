@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import CrtMonitor from '@/components/CrtMonitor/CrtMonitor';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import CrtMonitor from './CrtMonitor';
 
 faker.seed(1337);
 

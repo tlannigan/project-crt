@@ -1,6 +1,7 @@
 import type { ComponentProps, CSSProperties } from 'react';
 import { twMerge } from 'tailwind-merge';
-import styles from './CrtMonitor.module.css';
+import '../../styles/base.css';
+import './CrtMonitor.css';
 
 export type CrtMonitorProps = {
   backgroundColor?: string;
@@ -57,14 +58,14 @@ export default function CrtMonitor({
       style={{ ...style, ...cssVars }}
     >
       <div>{children}</div>
-      {hasBloom && <div className={twMerge(styles.effect, styles.screenGlow)} />}
-      {hasPhosphorMask && <div className={twMerge(styles.effect, styles.phosphorMask)} />}
-      {hasScanlines && <div className={twMerge(styles.effect, styles.scanlines)} />}
-      {hasHumBar && <div className={twMerge(styles.effect, styles.humBar)} />}
-      {hasGrain && <div className={twMerge(styles.effect, styles.grain)} />}
-      {hasFlicker && <div className={twMerge(styles.effect, styles.flicker)} />}
-      {hasEdgeShadow && <div className={twMerge(styles.effect, styles.edgeShadow)} />}
-      {hasCornerReflection && <div className={twMerge(styles.effect, styles.cornerReflection)} />}
+      {hasBloom && <div className="crt-monitor-effect crt-monitor-screen-glow" />}
+      {hasPhosphorMask && <div className="crt-monitor-effect crt-monitor-phosphor-mask" />}
+      {hasScanlines && <div className="crt-monitor-effect crt-monitor-scanlines" />}
+      {hasHumBar && <div className="crt-monitor-effect crt-monitor-hum-bar" />}
+      {hasGrain && <div className="crt-monitor-effect crt-monitor-grain" />}
+      {hasFlicker && <div className="crt-monitor-effect crt-monitor-flicker" />}
+      {hasEdgeShadow && <div className="crt-monitor-effect crt-monitor-edge-shadow" />}
+      {hasCornerReflection && <div className="crt-monitor-effect crt-monitor-corner-reflection" />}
     </div>
   );
 }

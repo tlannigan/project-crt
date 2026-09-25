@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import '../../styles/base.css';
 
 export type ShapeType = 'rectangle' | 'square' | 'circle' | 'triangle';
 

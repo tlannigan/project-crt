@@ -1,17 +1,17 @@
-.shape {
+.crt-animated-shape {
   position: absolute;
   pointer-events: none;
   will-change: left, top, opacity;
   filter: var(--shape-glow);
-  animation: tunnel var(--duration) linear var(--delay, 0ms) both;
+  animation: crt-animated-shape-travel var(--duration) linear var(--delay, 0ms) both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .shape {
+  .crt-animated-shape {
     animation-play-state: paused;
   }
 }
 
-@keyframes tunnel {
+@keyframes crt-animated-shape-travel {
   from {
     left: var(--from-x);
     top: var(--from-y);
