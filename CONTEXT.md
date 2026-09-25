@@ -5,7 +5,7 @@ A portfolio site viewed as if through a CRT monitor, plus a retro-instrument com
 ## Language
 
 **Instrument**:
-An interactive, retro-styled input on the landing page (knob, joystick, radar, 7-segment display) that drives one or more Settings. It never holds the state it drives.
+An interactive, retro-styled input on the landing page (knob, joystick, switch, slider) that drives one or more Settings. It never holds the state it drives.
 _Avoid_: Widget, control, input (note: in real cockpits "instrument" means a display; here it means an input)
 
 **Readout**:
@@ -13,7 +13,7 @@ A retro-styled, display-only piece (7-segment display, odometer, compass, radar)
 _Avoid_: Gauge, indicator, display, instrument
 
 **Setting**:
-One piece of the landing page's design, layout or theme state (phosphor colour, scanline count, font size) that Instruments drive. More than one Instrument can drive the same Setting.
+One piece of the landing page's design, layout or theme state (phosphor colour, scanline count, font size) that Instruments drive. Each Setting is driven by at most one Instrument.
 _Avoid_: Option, preference, config
 
 **Global Setting**:
@@ -44,7 +44,7 @@ The action (and its animated transition) that moves the Instruments into their d
 _Avoid_: Fix, reset, tidy, uncalibrate
 
 **Binding**:
-The mapping from one Instrument's value to the Setting(s) it drives, e.g. joystick x → hue, joystick y → bloom. Bindings belong to the site; Instruments know nothing about Settings.
+The mapping from one Instrument's value to the Setting(s) it drives, e.g. joystick x → the Calibrate Prompt's horizontal position. Bindings belong to the site; Instruments know nothing about Settings.
 _Avoid_: Wiring, connection
 
 **Calibrate Prompt**:
