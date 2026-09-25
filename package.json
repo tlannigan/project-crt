@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@10.28.1",
   "scripts": {
-    "dev": "pnpm --filter @tlannigan/crt build && pnpm --filter web dev",
+    "dev": "pnpm --filter @tlannigan/crt build && pnpm --parallel --filter @tlannigan/crt --filter web dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
