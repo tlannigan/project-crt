@@ -20,6 +20,9 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/build-css.mjs",
+    "dev": "pnpm run \"/^dev:/\"",
+    "dev:js": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "dev:css": "node scripts/build-css.mjs --watch",
     "lint": "biome check .",
     "lint:fix": "biome lint --write",
     "check-types": "tsc --noEmit",
