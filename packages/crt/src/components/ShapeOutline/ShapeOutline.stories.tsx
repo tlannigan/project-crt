@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import ShapeOutline from '@/components/ShapeOutline/ShapeOutline';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import ShapeOutline from './ShapeOutline';
 
 const meta = {
   component: ShapeOutline,

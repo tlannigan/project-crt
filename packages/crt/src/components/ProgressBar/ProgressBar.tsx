@@ -2,6 +2,7 @@
 
 import { type ComponentProps, useEffect, useMemo, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import '../../styles/base.css';
 
 export type ProgressBarOrientation = 'horizontal' | 'vertical';
 

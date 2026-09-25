@@ -1,47 +1,18 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "project-crt",
   "private": true,
   "packageManager": "pnpm@10.28.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "biome check .",
-    "lint:fix": "biome lint --write",
-    "check-types": "tsc --noEmit --skipLibCheck",
-    "storybook": "storybook dev -p 3100",
-    "build-storybook": "storybook build",
-    "test": "vitest run --project unit"
-  },
-  "dependencies": {
-    "next": "16.2.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "tailwind-merge": "^3.6.0"
+    "dev": "pnpm --filter @tlannigan/crt build && pnpm --parallel --filter @tlannigan/crt --filter web dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "check-types": "pnpm -r check-types",
+    "test": "pnpm -r test",
+    "storybook": "pnpm --filter @tlannigan/crt storybook"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
-    "@faker-js/faker": "^10.5.0",
-    "@storybook/addon-a11y": "^10.6.0",
-    "@storybook/addon-docs": "^10.6.0",
-    "@storybook/addon-mcp": "10.6.0",
-    "@storybook/addon-themes": "^10.6.0",
-    "@storybook/addon-vitest": "^10.6.0",
-    "@storybook/nextjs-vite": "^10.6.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@vitest/browser-playwright": "^4.1.9",
-    "@vitest/coverage-v8": "^4.1.9",
-    "babel-plugin-react-compiler": "1.0.0",
-    "playwright": "^1.61.1",
-    "storybook": "^10.6.0",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "vite": "^8.1.0",
-    "vitest": "^4.1.9"
+    "@biomejs/biome": "2.2.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

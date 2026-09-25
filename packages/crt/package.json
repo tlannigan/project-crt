@@ -1,0 +1,67 @@
+{
+  "name": "@tlannigan/crt",
+  "version": "0.1.0",
+  "description": "Retro CRT-styled React components",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles/styles.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/build-css.mjs",
+    "dev": "pnpm run \"/^dev:/\"",
+    "dev:js": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "dev:css": "node scripts/build-css.mjs --watch",
+    "lint": "biome check .",
+    "lint:fix": "biome lint --write",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run --project unit",
+    "test:storybook": "vitest run --project storybook",
+    "pack:list": "node scripts/pack-list.mjs",
+    "storybook": "storybook dev -p 3100",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "dependencies": {
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@fontsource/ibm-plex-mono": "^5.2.0",
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
+    "@storybook/addon-mcp": "10.6.0",
+    "@storybook/addon-themes": "^10.6.0",
+    "@storybook/addon-vitest": "^10.6.0",
+    "@storybook/react-vite": "^10.6.0",
+    "@tailwindcss/cli": "^4",
+    "@tailwindcss/vite": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/browser-playwright": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.9",
+    "playwright": "^1.63.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "storybook": "^10.6.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vite": "^8.1.0",
+    "vitest": "^4.1.9"
+  }
+}

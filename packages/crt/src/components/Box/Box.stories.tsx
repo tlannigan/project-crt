@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Box from '@/components/Box/Box';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import Box from './Box';
 
 faker.seed(1337);
 

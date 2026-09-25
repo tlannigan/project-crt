@@ -1,16 +1,8 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
-import type { Decorator, Preview, ReactRenderer } from '@storybook/nextjs-vite';
-import { IBM_Plex_Mono } from 'next/font/google';
-import CrtMonitor from '@/components/CrtMonitor/CrtMonitor';
-import { ibmVgaMono } from '@/styles/fonts/fonts';
-import '../src/styles/globals.css';
+import type { Decorator, Preview, ReactRenderer } from '@storybook/react-vite';
 import { themes } from 'storybook/theming';
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: '--font-mono-ibm',
-  subsets: ['latin'],
-  weight: ['400']
-});
+import CrtMonitor from '../src/components/CrtMonitor/CrtMonitor';
+import './preview.css';
 
 // Conditionally render CrtMonitor wrapper around component stories
 const withCrtMonitor: Decorator = (Story, { viewMode, parameters, globals }) => {
@@ -18,7 +10,7 @@ const withCrtMonitor: Decorator = (Story, { viewMode, parameters, globals }) => 
   const fontClass = globals.font === 'plex' ? 'font-plex' : 'font-vga';
 
   return (
-    <div className={`${ibmVgaMono.variable} ${ibmPlexMono.variable} ${height} ${fontClass}`}>
+    <div className={`${height} ${fontClass}`}>
       {parameters.crtMonitor === false ? (
         <Story />
       ) : (

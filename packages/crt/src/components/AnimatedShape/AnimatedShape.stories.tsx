@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import AnimatedShape from '@/components/AnimatedShape/AnimatedShape';
-import Box from '@/components/Box/Box';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import Box from '../Box/Box';
+import AnimatedShape from './AnimatedShape';
 
 const BOTTOM_LEFT_TO_TOP_RIGHT = {
   from: { x: '0%', y: '100%' },

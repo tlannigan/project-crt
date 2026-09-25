@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* The site's own utilities, mapped onto the tokens @tlannigan/crt defines.
+   The library's stylesheets arrive with its components; nothing here imports them. */
+@custom-variant green (&:where(.green, .green *));
+@custom-variant orange (&:where(.orange, .orange *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-vga: var(--font-ibm-vga-mono);
+  --font-plex: var(--font-mono-ibm);
+
+  --text-shadow-glow: var(--text-glow);
+  --shadow-glow: var(--box-glow);
+}

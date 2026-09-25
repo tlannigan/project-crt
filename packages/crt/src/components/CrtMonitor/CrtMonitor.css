@@ -1,19 +1,19 @@
-.effect {
+.crt-monitor-effect {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.cornerReflection {
+.crt-monitor-corner-reflection {
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 20%);
   opacity: 0.25;
 }
 
-.edgeShadow {
+.crt-monitor-edge-shadow {
   background: radial-gradient(ellipse at center, transparent 72%, rgba(0, 0, 0, 0.12) 100%);
 }
 
-.screenGlow {
+.crt-monitor-screen-glow {
   background: radial-gradient(
     ellipse at center,
     oklch(from var(--foreground) l c h / 0.08) 0%,
@@ -23,11 +23,11 @@
   mix-blend-mode: screen;
 }
 
-.scanlines {
+.crt-monitor-scanlines {
   container-type: size;
 }
 
-.scanlines::before {
+.crt-monitor-scanlines::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -41,7 +41,7 @@
   mix-blend-mode: multiply;
 }
 
-.phosphorMask {
+.crt-monitor-phosphor-mask {
   background: repeating-linear-gradient(
     to right,
     rgba(0, 0, 0, 0.12) 0px,
@@ -52,15 +52,15 @@
   mix-blend-mode: multiply;
 }
 
-.grain {
+.crt-monitor-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   opacity: 0.05;
   mix-blend-mode: screen;
-  animation: grain 0.5s steps(5) infinite;
+  animation: crt-monitor-grain 0.5s steps(5) infinite;
 }
 
-@keyframes grain {
+@keyframes crt-monitor-grain {
   0% {
     background-position: 0 0;
   }
@@ -81,18 +81,18 @@
   }
 }
 
-.humBar::before,
-.humBar::after {
+.crt-monitor-hum-bar::before,
+.crt-monitor-hum-bar::after {
   content: "";
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
   background-size: 100% 160%;
-  animation: hum 12s linear infinite;
+  animation: crt-monitor-hum 12s linear infinite;
 }
 
 /* Light hum bar */
-.humBar::before {
+.crt-monitor-hum-bar::before {
   background-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 42%,
@@ -103,7 +103,7 @@
 }
 
 /* Dark hum bar */
-.humBar::after {
+.crt-monitor-hum-bar::after {
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 42%,
@@ -114,7 +114,7 @@
   animation-delay: -6s;
 }
 
-@keyframes hum {
+@keyframes crt-monitor-hum {
   0% {
     background-position: 0 -160%;
   }
@@ -123,14 +123,14 @@
   }
 }
 
-.flicker {
+.crt-monitor-flicker {
   background: #000;
   mix-blend-mode: multiply;
   opacity: 0.02;
-  animation: flicker 6s ease-in-out infinite;
+  animation: crt-monitor-flicker 6s ease-in-out infinite;
 }
 
-@keyframes flicker {
+@keyframes crt-monitor-flicker {
   0% {
     opacity: 0.02;
   }
@@ -170,10 +170,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flicker,
-  .grain,
-  .humBar::before,
-  .humBar::after {
+  .crt-monitor-flicker,
+  .crt-monitor-grain,
+  .crt-monitor-hum-bar::before,
+  .crt-monitor-hum-bar::after {
     animation: none;
   }
 }

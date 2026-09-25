@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Box from '@/components/Box/Box';
-import Tunnel from '@/components/Tunnel/Tunnel';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import Box from '../Box/Box';
+import Tunnel from './Tunnel';
 
 const meta = {
   component: Tunnel,

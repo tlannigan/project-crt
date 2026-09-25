@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import QrCode from '@/components/QrCode/QrCode';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import QrCode from './QrCode';
 
 const meta = {
   component: QrCode,

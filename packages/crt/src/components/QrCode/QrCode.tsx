@@ -1,6 +1,7 @@
 import type { ComponentProps, CSSProperties } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { type ErrorCorrection, encodeQrMatrix } from './utils/qr';
+import '../../styles/base.css';
 
 export type QrCodeProps = {
   url: string;
