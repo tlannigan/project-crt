@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "biome check .",
     "lint:fix": "biome lint --write",
-    "check-types": "tsc --noEmit --skipLibCheck"
+    "check-types": "tsc --noEmit --skipLibCheck",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@tlannigan/crt": "workspace:*",
@@ -17,6 +18,8 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
