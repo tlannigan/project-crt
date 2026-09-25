@@ -11,7 +11,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "noUncheckedSideEffectImports": true
   },
   "include": ["src", ".storybook", "scripts", "vitest.config.ts", "vitest.shims.d.ts"],
   "exclude": ["node_modules", "dist"]
