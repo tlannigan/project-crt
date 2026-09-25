@@ -20,3 +20,17 @@ Pick the type by the branch's main purpose:
 The slug is 2–5 lowercase kebab-case words describing the change, e.g. `feat/7/dev-watch-rebuild`, `chore/bump-next`.
 
 Every branch carries exactly one issue number. When an issue's work spans several branches, create a sub-issue per branch (see `docs/agents/issue-tracker.md`) and name each branch after its sub-issue.
+
+# Agent skills
+
+## Issue tracker
+
+Issues are tracked in GitHub Issues for tlannigan/project-crt, using the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+## Triage labels
+
+Uses the five default triage labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+## Domain docs
+
+Single-context: one root `CONTEXT.md` plus `docs/adr/`. See `docs/agents/domain.md`.
