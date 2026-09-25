@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm --filter @tlannigan/crt build-storybook",
+  "outputDirectory": "packages/crt/storybook-static"
+}
